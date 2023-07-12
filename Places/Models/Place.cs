@@ -4,9 +4,11 @@ namespace Places.Models
 {
   public class Place
   {
-    public Place()
+    public string CityName { get; set; }
+
+    public Place(string cityName)
     {
-      
+      CityName = cityName;
     }
   }
 }
