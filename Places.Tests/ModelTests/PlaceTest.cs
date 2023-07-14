@@ -58,5 +58,31 @@ namespace Places.Tests
 
       Assert.AreEqual(updatedLengthOfStay, newPlace.LengthOfStay);
     }
+
+    [TestMethod]
+    public void GetJournalEntry_ReturnJournalEntry_String()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      string journalEntry = "Dear journal. Today was the most wonderful day.";
+      Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry);
+
+      string getResult = newPlace.JournalEntry;
+      Assert.AreEqual(journalEntry, getResult);
+    }
+
+    [TestMethod]
+    public void SetJournalEntry_SetsJournalEntry_String()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      string journalEntry = "Dear journal. Today was the most wonderful day.";
+      Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry);
+
+      string updatedJournalEntry = "Oh journal! Today was the most magnificient, bunch of hours.";
+      newPlace.JournalEntry = updatedJournalEntry;
+
+      Assert.AreEqual(updatedJournalEntry, newPlace.JournalEntry);
+    }
   }
 }
