@@ -33,5 +33,30 @@ namespace Places.Tests
       newPlace.CityName = newCity;
       Assert.AreEqual(newCity, newPlace.CityName);      
     }
+
+    [TestMethod]
+    public void GetLengthOfStay_ReturnLengthOfStay_Int()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      Place newPlace = new Place(nameOfCity, lengthOfStay);
+
+      int getResult = newPlace.LengthOfStay;
+
+      Assert.AreEqual(lengthOfStay, getResult);
+    }
+
+    [TestMethod]
+    public void SetLengthOfStay_SetsLengthOfStayToNewValue_Int()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      Place newPlace = new Place(nameOfCity, lengthOfStay);
+
+      int updatedLengthOfStay = 20;
+      newPlace.LengthOfStay = updatedLengthOfStay;
+
+      Assert.AreEqual(updatedLengthOfStay, newPlace.LengthOfStay);
+    }
   }
 }
