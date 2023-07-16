@@ -7,6 +7,7 @@ namespace Places.Models
     public string CityName { get; set; }
     public int LengthOfStay { get; set; }
     public string JournalEntry { get; set; }
+    public List<string> CompanionList { get; set; }
 
     public Place(string cityName)
     {
@@ -24,6 +25,14 @@ namespace Places.Models
       CityName = cityName;
       LengthOfStay = lengthOfStay;
       JournalEntry = journalEntry;
-    }    
+    }
+
+    public Place(string cityName, int lengthOfStay, string journalEntry, List<string> companionList)
+    {
+      CityName = cityName;
+      LengthOfStay = lengthOfStay;
+      JournalEntry = journalEntry;
+      CompanionList = companionList;
+    } 
   }
 }

@@ -84,5 +84,23 @@ namespace Places.Tests
 
       Assert.AreEqual(updatedJournalEntry, newPlace.JournalEntry);
     }
+
+    [TestMethod]
+    public void GetCompanionsList_ReturnCompanionsList_StringList()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      string journalEntry = "Dear journal. Today was the most wonderful day.";
+      List<string> companions = new List<string>()
+      {
+        "Dermot",
+        "Libby",
+        "Alex",
+      };
+
+      Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions);
+
+      CollectionAssert.AreEqual(companions, newPlace.CompanionList);
+    }
   }
 }
