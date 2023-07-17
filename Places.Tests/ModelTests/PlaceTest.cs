@@ -102,5 +102,31 @@ namespace Places.Tests
 
       CollectionAssert.AreEqual(companions, newPlace.CompanionList);
     }
+
+    [TestMethod]
+    public void SetCompanionsList_SetsNewValuesForCompanionsList_ItemList()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      string journalEntry = "Dear journal. Today was the most wonderful day.";
+      List<string> companions = new List<string>()
+      {
+        "Dermot",
+        "Libby",
+        "Alex",
+      };
+
+      Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions);
+
+      List<string> companionsUpdated = new List<string>()
+      {
+        "Gu",
+        "Jo",
+      };
+
+      newPlace.CompanionList = companionsUpdated;
+
+      CollectionAssert.AreEqual(companionsUpdated, newPlace.CompanionList);      
+    }
   }
 }
