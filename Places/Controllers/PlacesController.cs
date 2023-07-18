@@ -14,11 +14,11 @@ namespace Places.Controllers
     //   return View(allPackages);
     // }
 
-    // [HttpGet("/cart/additem")]
-    // public ActionResult CreateForm()
-    // {
-    //   return View();
-    // }
+    [HttpGet("/log/addentry")]
+    public ActionResult CreateForm()
+    {
+      return View();
+    }
 
     // [HttpPost("/cart")]
     // public ActionResult Create(double weight, double length, double width, double height)
