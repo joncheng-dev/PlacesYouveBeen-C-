@@ -31,7 +31,7 @@ namespace Places.Tests
       Place newPlace = new Place(nameOfCity);
       string newCity = "San Diego";
       newPlace.CityName = newCity;
-      Assert.AreEqual(newCity, newPlace.CityName);      
+      Assert.AreEqual(newCity, newPlace.CityName);
     }
 
     [TestMethod]
@@ -93,9 +93,9 @@ namespace Places.Tests
       string journalEntry = "Dear journal. Today was the most wonderful day.";
       List<string> companions = new List<string>()
       {
-        "Dermot",
-        "Libby",
-        "Alex",
+        "De",
+        "Li",
+        "Al",
       };
 
       Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions);
@@ -111,9 +111,9 @@ namespace Places.Tests
       string journalEntry = "Dear journal. Today was the most wonderful day.";
       List<string> companions = new List<string>()
       {
-        "Dermot",
-        "Libby",
-        "Alex",
+        "De",
+        "Li",
+        "Al",
       };
 
       Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions);
@@ -126,7 +126,7 @@ namespace Places.Tests
 
       newPlace.CompanionList = companionsUpdated;
 
-      CollectionAssert.AreEqual(companionsUpdated, newPlace.CompanionList);      
+      CollectionAssert.AreEqual(companionsUpdated, newPlace.CompanionList);
     }
 
     [TestMethod]
@@ -137,9 +137,9 @@ namespace Places.Tests
       string journalEntry = "Dear journal. Today was the most wonderful day.";
       List<string> companions = new List<string>()
       {
-        "Dermot",
-        "Libby",
-        "Alex",
+        "De",
+        "Li",
+        "Al",
       };
       List<string> pictures = new List<string>()
       {
@@ -150,6 +150,38 @@ namespace Places.Tests
       Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions, pictures);
 
       CollectionAssert.AreEqual(pictures, newPlace.PictureList);
+    }
+
+    [TestMethod]
+    public void SetPicturesList_SetsNewStringsForPictureList_StringList()
+    { 
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      string journalEntry = "Dear journal. Today was the most wonderful day.";
+      List<string> companions = new List<string>()
+      {
+        "De",
+        "Li",
+        "Al",
+      };
+      List<string> pictures = new List<string>()
+      {
+        "https://upload.wikimedia.org/wikipedia/commons/1/17/SanLeandroCityHall_%28cropped%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Casa_Peralta_%28San_Leandro%2C_CA%29.JPG/1280px-Casa_Peralta_%28San_Leandro%2C_CA%29.JPG",
+      };
+
+      Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions, pictures);
+
+      List<string> updatedPictures = new List<string>()
+      {
+        "https://img.marinas.com/v2/a8cf922155ac9670f85fc33a453db44a055175e7e276e2b9ec3d873b99d5b367.jpg",
+        "https://www.timejones.com/San%20Leandro.jpg",
+      };
+
+      newPlace.PictureList = updatedPictures;
+
+      CollectionAssert.AreEqual(updatedPictures, newPlace.PictureList);
+
     }
   }
 }
