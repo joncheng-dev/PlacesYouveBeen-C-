@@ -6,8 +6,13 @@ using System;
 namespace Places.Tests
 {
   [TestClass]
-  public class PlaceTests
+  public class PlaceTests : IDisposable
   {
+    public void Dispose()
+    {
+      Place.ClearAll();
+    }
+
     [TestMethod]
     public void PlaceConstructor_CreatesInstanceOfPlace_Place()
     {
@@ -181,7 +186,6 @@ namespace Places.Tests
       newPlace.PictureList = updatedPictures;
 
       CollectionAssert.AreEqual(updatedPictures, newPlace.PictureList);
-
     }
   }
 }

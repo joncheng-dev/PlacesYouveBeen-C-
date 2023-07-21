@@ -6,21 +6,21 @@ namespace Places.Controllers
 {
   public class PlacesController : Controller
   {
-    // [HttpGet("/cart")]
+    // [HttpGet("/journal")]
     // public ActionResult Index()
     // {
-      
+
     //   List<Item> allPackages = Item.GetAll();
     //   return View(allPackages);
     // }
 
-    [HttpGet("/log/addentry")]
+    [HttpGet("/journal/new")]
     public ActionResult CreateForm()
     {
       return View();
     }
 
-    // [HttpPost("/cart")]
+    // [HttpPost("/journal")]
     // public ActionResult Create(double weight, double length, double width, double height)
     // {
     //   Item anItem = new Item(weight, length, width, height);

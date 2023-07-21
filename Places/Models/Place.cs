@@ -10,15 +10,19 @@ namespace Places.Models
     public List<string> CompanionList { get; set; }
     public List<string> PictureList { get; set; }
 
+    private static List<Place> _instances = new List<Place> { };
+
     public Place(string cityName)
     {
       CityName = cityName;
+      _instances.Add(this);
     }
 
     public Place(string cityName, int lengthOfStay)
     {
       CityName = cityName;
       LengthOfStay = lengthOfStay;
+      _instances.Add(this);      
     }
 
     public Place(string cityName, int lengthOfStay, string journalEntry)
@@ -26,6 +30,7 @@ namespace Places.Models
       CityName = cityName;
       LengthOfStay = lengthOfStay;
       JournalEntry = journalEntry;
+      _instances.Add(this);
     }
 
     public Place(string cityName, int lengthOfStay, string journalEntry, List<string> companionList)
@@ -34,6 +39,7 @@ namespace Places.Models
       LengthOfStay = lengthOfStay;
       JournalEntry = journalEntry;
       CompanionList = companionList;
+      _instances.Add(this);
     }
 
     public Place(string cityName, int lengthOfStay, string journalEntry, List<string> companionList, List<string> pictureList)
@@ -43,6 +49,17 @@ namespace Places.Models
       JournalEntry = journalEntry;
       CompanionList = companionList;
       PictureList = pictureList;
+      _instances.Add(this); 
     }  
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
+
+    public static List<Place> GetAll()
+    {
+      return _instances;
+    }
   }
 }
