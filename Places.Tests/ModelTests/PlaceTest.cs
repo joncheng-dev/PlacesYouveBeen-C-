@@ -187,5 +187,13 @@ namespace Places.Tests
 
       CollectionAssert.AreEqual(updatedPictures, newPlace.PictureList);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_PlaceList()
+    {
+      List<Place> placesList = new List<Place> { };
+      List<Place> result = Place.GetAll();
+      CollectionAssert.AreEqual(placesList, result);
+    }
   }
 }
