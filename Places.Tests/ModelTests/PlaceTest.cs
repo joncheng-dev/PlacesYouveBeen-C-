@@ -195,5 +195,46 @@ namespace Places.Tests
       List<Place> result = Place.GetAll();
       CollectionAssert.AreEqual(placesList, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsPlacesList_PlaceList()
+    {
+      string nameOfCity1 = "San Leandro";
+      int lengthOfStay1 = 10;
+      string journalEntry1 = "Dear journal. Today was the most wonderful day.";
+      List<string> companions1 = new List<string>()
+      {
+        "De",
+        "Li",
+        "Al",
+      };
+      List<string> pictures1 = new List<string>()
+      {
+        "https://upload.wikimedia.org/wikipedia/commons/1/17/SanLeandroCityHall_%28cropped%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Casa_Peralta_%28San_Leandro%2C_CA%29.JPG/1280px-Casa_Peralta_%28San_Leandro%2C_CA%29.JPG",
+      };
+      Place newPlace1 = new Place(nameOfCity1, lengthOfStay1, journalEntry1, companions1, pictures1);
+
+      string nameOfCity2 = "Los Angeles";
+      int lengthOfStay2 = 5;
+      string journalEntry2 = "Hi there. Quick entry.";
+      List<string> companions2 = new List<string>()
+      {
+        "Abe",
+        "Bil",
+        "Con",
+      };
+      List<string> pictures2 = new List<string>()
+      {
+        "https://ktla.com/wp-content/uploads/sites/4/2022/12/GettyImages-1346202245.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Hollywood_sign_%288485145044%29.jpg",
+      };
+      Place newPlace2 = new Place(nameOfCity2, lengthOfStay2, journalEntry2, companions2, pictures2);
+
+      List<Place> placesList = new List<Place> { newPlace1, newPlace2 };
+      List<Place> listByGetAll = Place.GetAll();
+
+      CollectionAssert.AreEqual(placesList, listByGetAll);
+    }
   }
 }
