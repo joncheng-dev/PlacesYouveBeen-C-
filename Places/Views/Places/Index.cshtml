@@ -39,7 +39,7 @@
       <tr>
         <th>Entry #</th>
         <th>City Name</th>
-        <th>Length of Stay</th>
+        <th>Length of Stay (in days)</th>
         <th>Journal Entry</th>
         <th>Companions</th>
         <th>Pictures</th>
@@ -52,8 +52,18 @@
           <td>@Model[i].CityName</td>
           <td>@Model[i].LengthOfStay</td>
           <td>@Model[i].JournalEntry</td>
-          <td>@Model[i].CompanionList</td>
-          <td>@Model[i].PictureList</td>
+          <td>
+            @for(int x = 0; x < @Model[i].CompanionList.Count; x++)
+            {
+              <li>@Model[i].CompanionList[x]</li>
+            }
+          </td>
+          <td>
+            @for(int x = 0; x < @Model[i].PictureList.Count; x++)
+            {
+              <li>@Model[i].PictureList[x]</li>
+            }
+          </td>
         </tr>
       }
     </table>
