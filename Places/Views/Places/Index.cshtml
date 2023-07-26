@@ -61,7 +61,8 @@
           <td>
             @for(int x = 0; x < @Model[i].PictureList.Count; x++)
             {
-              <li>@Model[i].PictureList[x]</li>
+              string temp = @Model[i].PictureList[x];
+              <li><img src=@temp></li>
             }
           </td>
         </tr>
