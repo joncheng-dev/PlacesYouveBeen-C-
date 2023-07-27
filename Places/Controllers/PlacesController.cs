@@ -25,5 +25,12 @@ namespace Places.Controllers
       Place aNewPlace = new Place(cityName, lengthOfStay, journalEntry, companionList, pictureList);
       return RedirectToAction("Index");
     }
+
+    [HttpPost("/journal/delete")]
+    public ActionResult DeleteAll()
+    {
+      Place.ClearAll();
+      return View();
+    }
   }
 }
