@@ -236,5 +236,30 @@ namespace Places.Tests
 
       CollectionAssert.AreEqual(placesList, listByGetAll);
     }
+
+    [TestMethod]
+    public void GetId_PlacesInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      string nameOfCity = "San Leandro";
+      int lengthOfStay = 10;
+      string journalEntry = "Dear journal. Today was the most wonderful day.";
+      List<string> companions = new List<string>()
+      {
+        "De",
+        "Li",
+        "Al",
+      };
+      List<string> pictures = new List<string>()
+      {
+        "https://upload.wikimedia.org/wikipedia/commons/1/17/SanLeandroCityHall_%28cropped%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Casa_Peralta_%28San_Leandro%2C_CA%29.JPG/1280px-Casa_Peralta_%28San_Leandro%2C_CA%29.JPG",
+      };
+
+      Place newPlace = new Place(nameOfCity, lengthOfStay, journalEntry, companions, pictures);
+
+      int result = newPlace.Id;
+
+      Assert.AreEqual(1, result);
+    }
   }
 }
