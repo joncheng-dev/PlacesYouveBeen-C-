@@ -21,3 +21,4 @@ This is an app for a user to enter entries for an online travel diary. The user 
 ## Known Bugs
 
 - Currently, user can enter only one 'companion' and one 'picture' in the input fields available.
+- Pictures do not correctly display when showing entries.
